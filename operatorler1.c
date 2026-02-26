@@ -68,4 +68,6 @@ int main()
 //ternary operatör
 
 printf("a>b?100:200-->%d\n",a>b?100:200);
+
+
 }
