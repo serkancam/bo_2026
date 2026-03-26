@@ -1,0 +1,121 @@
+
+Soru 1
+
+Doğru Cevap Notu: i++ ifadesi 0 döndürür, VEYA (||) işlemi için bu 'yanlış' olduğundan sağa geçilir. j++ ifadesi 1 döndürür. VEYA işleminde 1 'doğru' kabul edildiği için || operatörü kısa devre (short-circuit) yapar ve sağındaki k++ hiçbir zaman çalışmaz. Sonuçta i=1, j=2, k orijinal değeri 2 kalır ve m=1 (doğru) olur.
+
+İpucu: Mantıksal VEYA (||) operatörünün kısa devre davranışını ve i++ ifadesinin önce orijinal değeri döndürüp sonra kendini artırdığını unutmayın.
+
+Soru 2
+
+Doğru Cevap Notu: i & 1 ifadesi tek sayıları atlar (i=0, 2, 4, 6 için döngü bloğu çalışır). XOR (^) işlemi uygulanır: 0^2=2, 2^2=0, 4^2=6, 6^2=4. Bunların toplamı: 2 + 0 + 6 + 4 = 12.
+
+İpucu: Bit düzeyinde VE (&) ile 1'i işleme sokmak sayının tek mi çift mi olduğunu kontrol eder. XOR (^) işlemi karşılıklı bitleri karşılaştırır (farklıysa 1, aynıysa 0).
+
+Soru 3
+
+Doğru Cevap Notu: i=0 için j=0 ve 2'de x artar (x=2). i=1 olduğunda iç döngü break ile anında kırılır (x artmaz). i=2 için j=0 ve 2'de x artar (x 4 olur). Toplam 4'tür.
+
+İpucu: break ifadesi sadece içinde bulunduğu en içteki (o anki) döngüyü kırar, dış döngü çalışmaya devam eder.
+
+Soru 4
+
+Doğru Cevap Notu: i=1 için case 1 çalışır (r=1) ve break olmadığı için alt satıra geçerek case 2 de çalışır (r=1+2=3). i=2 için sadece case 2 çalışır (r=3+4=7). i=3 için case 3 çalışır (r=7+9=16).
+
+İpucu: switch-case yapısında break anahtar kelimesi yoksa program eşleşen durumdan başlayarak diğer durumlara (case) aşağı doğru akmaya devam eder (Fallthrough).
+
+Soru 5
+
+Doğru Cevap Notu: i=-4 için -4 % 3 = -1. i=-1 için -1 % 3 = -1. i=2 için 2 % 3 = 2. Toplam: -1 - 1 + 2 = 0.
+
+İpucu: C dilinde kalan (%) operatörünün sonucu, pay (sol operand) negatifse daima negatif veya sıfır bir tam sayı üretir. Matematiksel mod işleminden farklıdır.
+
+Soru 6
+
+Doğru Cevap Notu: sizeof operatörü derleme (compile) zamanında çalışır ve içindeki operandı sadece boyut ölçmek için kullanır, asla çalıştırmaz/değerlendirmez. Bu nedenle x += 2 işlemi hiç gerçekleşmez ve x'in değeri 5 olarak kalır.
+
+İpucu: sizeof bir fonksiyon değil operatördür ve içindeki işlemler çalışma zamanında (runtime) yürütülmez.
+
+Soru 7
+
+Doğru Cevap Notu: a=12 (1100), b=3 (0011). c = 12 ^ 3 = 15 (1111). 15 & 8 işlemi 8 üretir (Sıfır olmadığı için True kabul edilir). Bu yüzden c << 1 işlemi (15 * 2 = 30) çalışır ve atanır.
+
+İpucu: C'de sıfır dışındaki tüm sayısal sonuçlar if/ternary koşullarında "doğru" (True) kabul edilir.
+
+Soru 8
+
+Doğru Cevap Notu: Ternary operatörü sağdan sola birleşir (right-to-left associativity). a > 2 yanlıştır (1 > 2). İkinci kısma geçilir: c > 2 (3 > 2) doğrudur, dolayısıyla k'ya a'nın değeri (1) atanır.
+
+İpucu: İç içe ternary operatörleri kullanıldığında kod koşul1 ? değer1 : (koşul2 ? değer2 : değer3) şeklinde parantezlenerek düşünülmelidir.
+
+Soru 9
+
+Doğru Cevap Notu: Kontrol i=3 iken doğru olur, bloğa girmeden önce i=2 olur (j+=1). Kontrol i=2 iken i=1 olur (j+=2). Kontrol i=1 iken i=0 olur (j+=1). Toplam j = 1 + 2 + 1 = 4.
+
+İpucu: while(i--) döngüsünde post-increment olduğundan önce büyüklük sorgulanır, sonra i azaltılır ve en son döngü gövdesi çalışır. Döngü içindeki i değeri her zaman koşuldaki değerden 1 eksiktir.
+
+Soru 10
+
+Doğru Cevap Notu: 1'den 5'e kadar olan sayıların toplamı 15'tir. Sonucun 11 olması için döngünün sadece 4 değerini atlaması gerekir. continue komutu bu sayıyı sum'a ekletmeden atlar.
+
+İpucu: Eksik veya istenen toplama ulaşmak için toplam havuzundan aradaki matematiksel farkı bularak hangi adımın es geçilmesi (continue) gerektiğini hesaplayın.
+
+Soru 11
+
+Doğru Cevap Notu: C dilinde else her zaman kendisine en yakın olan bağsız if ile eşleşir. Girinti (boşluklar) önemsizdir. Yani else, if(b < 15) koşuluna aittir. b < 15 yanlış olduğu için else bloğu çalışır ve b++ işlemi b'yi 21 yapar. Toplam 10 + 21 = 31 olur.
+
+İpucu: Derleyici kod girintilerini (indentation) umursamaz, else daima aynı blok hiyerarşisindeki en yakın kapatılmamış if komutuna bağlanır.
+
+Soru 12
+
+Doğru Cevap Notu: Switch bloğu '*' durumunda başlar, v += 3 ile v=3 olur. Break olmadığı için '/' durumuna düşer (fallthrough) ve v *= 2 ile v=6 olur.
+
+İpucu: C dilinde switch ifadeleri tek tırnak içindeki ASCII karakterleriyle de 
+Sorunsuz çalışır. Mantık sayılardaki fallthrough ile aynıdır.
+
+Soru 13
+
+Doğru Cevap Notu: Adım 1: 0<5, if atlanır, i++(1), update kısmında i=2, j=4. Adım 2: 2<4, if atlanır, i++(3), update kısmında i=4, j=3. Adım 3: 4<3 (Yanlış). Döngü biter. Çıktı 4 ve 3 olur.
+
+İpucu: Döngü gövdesindeki i++ komutunun sayaç artırım bölümünden (i++, j--) tamamen bağımsız olarak i'yi ekstradan bir kez daha artırdığına dikkat edilmelidir.
+
+Soru 14
+
+Doğru Cevap Notu: a++ (0) olur, && hemen kısa devre yapar, b değerlendirilmez (b=1 kalır). || sağ tarafı yani c++'ı değerlendirir. c=2 (Doğru), tüm ifade doğru olur. İçeri girer a++ çalışır (a=2). c artmış olur (3). Sonuç: 2 1 3.
+
+İpucu: A && B ifadesinde A 0 ise B asla çalıştırılmaz. A || B ifadesinde A 1 ise B asla çalıştırılmaz.
+
+Soru 15
+
+Doğru Cevap Notu: x=6 çifttir (x%2==0), ilk doğru dalına girer. İçerideki blokta 6 aynı zamanda 3'e de bölünür (x%3==0), bu yüzden sonuç en içteki 1 çıkar.
+
+İpucu: Parantezlerin hangi ifadenin doğru (true) veya yanlış (false) dalına ait olduğunu belirlediğine ve sırayla okunması gerektiğine dikkat edin.
+
+Soru 16
+
+Doğru Cevap Notu: (x & (x-1)) == 0 formülü sayının 2'nin bir kuvveti olup olmadığını kontrol eder. 1 ile 10 arasındaki 2'nin kuvvetleri: 1, 2, 4 ve 8'dir. Toplam 4 adet sayı bu koşula uyar.
+
+İpucu: Bir tamsayıdan bir çıkarıldığında, bit gösterimindeki en sağdaki 1 biti 0 olur ve onun sağındakiler 1'e döner. Bu yüzden VE (&) işlemi ikinin kuvvetlerinde her zaman 0 döndürür.
+
+Soru 17
+
+Doğru Cevap Notu: Virgül operatörü sol tarafı çalıştırır ama sadece sağ tarafın sonucunu döngü şartı olarak alır. Döngü, i<3'e bakmaksızın sum < 6 olana kadar devam eder. sum=0,1,3,6 değerlerini alırken i sırasıyla 1,2,3,4 olur.
+
+İpucu: C dilinde ardışık virgül (,) operatörlerinin ürettiği nihai değer, her zaman en sağdaki ifadenin değeridir.
+
+Soru 18
+
+Doğru Cevap Notu: Toplama (+), kaydırmadan (<<) ve bitsel VE (&) işleminden daha önceliklidir. İfade a & (b << (1 + 1)) olur. b << 2 -> 8'dir. 5 & 8 işlemi ise 0 sonucunu verir.
+
+İpucu: C'de aritmetik operatörler (+, -), bitsel kaydırma (<<, >>) ve bit düzeyinde mantık (&, |, ^) operatörlerinden daha yüksek önceliğe sahiptir.
+
+Soru 19
+
+Doğru Cevap Notu: do-while döngüleri, şart doğru olsun veya olmasın en az 1 kere çalışır. x=5 iken gövde çalışır, x=3 olur. Ardından while(3 > 10) yanlış olduğu için döngü biter.
+
+İpucu: do-while yapısı koşulu döngünün başında değil, en sonunda değerlendirir.
+
+Soru 20
+
+Doğru Cevap Notu: 1. turda i=2 olur. 2. turda i=4 olur ve if(i == 4) break; ile döngü kırılarak 4 değeri yazdırılır. Eğer i == 2 konsaydı sadece ilk turda kırılır ve 2 yazardı.
+
+İpucu: Döngü değişkeninin (i) her döngü adımında nasıl değiştiğini (1 -> 2 -> 4 -> 8 ...) sırayla takip edin ve tam olarak nerede (hangi adımda) break gerektiğini analiz edin.

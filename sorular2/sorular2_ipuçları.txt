@@ -1,0 +1,168 @@
+Soru 0
+
+Doğru Cevap Notu: a dizisinin boyutu belirtilmediği için derleyici B, I, L, I, S, I, M, \0 olmak üzere 8 byte ayırır. Ancak b dizisi açıkça 7 elemanlı tanımlandığı için \0 eklenmez ve hafızada 7 byte yer tutar.
+
+İpucu: C dilinde boyut belirtmeden oluşturulan char dizilerinin sonuna gizli bir null terminator (\0) eklenir. Boyutu açıkça belirtilenlerde ise belirtilen sınır geçerlidir.
+
+Soru 1
+
+Doğru Cevap Notu: C dilinde d[3] ifadesi bellekte *(d + 3) olarak çözümlenir. Toplama işleminde değişme özelliği olduğundan bu *(3 + d) yani 3[d] ile tamamen aynıdır. Sonuç 3. indeksteki eleman olan 8'dir.
+
+İpucu: C dilindeki dizi indeksleme mantığı aslında bir adres toplama işlemidir. A[B] ile B[A] derleyici için aynı anlama gelir.
+
+Soru 2
+
+Doğru Cevap Notu: Dizi isimleri a ve b hafızadaki adresleri (referansları) temsil eder. İçerikleri aynı olsa da RAM üzerinde farklı bölgelerde oluşturuldukları için adresleri farklıdır. Sonuç olarak eşitlik sağlanmaz.
+
+İpucu: C dilinde eşitlik (==) operatörü dizilere uygulandığında içerikleri değil, dizilerin bellekteki başlangıç adreslerini karşılaştırır.
+
+Soru 3
+
+Doğru Cevap Notu: i=0'da a[0]=40 olur. (Dizi: 40,20,30,40). i=1'de a[1]=30 olur. (Dizi: 40,30,30,40). i=2'de a[2], a[1]'in GÜNCEL değerini alır (30). i=3'te a[3], a[0]'ın GÜNCEL değerini alır (40).
+
+İpucu: Atama işlemleri diziyi anında (in-place) değiştirir. Sonraki adımlar dizinin orijinal halini değil, değiştirilmiş halini kullanır.
+
+Soru 4
+
+Doğru Cevap Notu: İlk açık \0, programdaki string yazdırma fonksiyonlarını durdursa da derleyici tırnak içindeki her şeyi hafızaya alır. 'C', '\0', 'D', 'i', 'l', 'i', '\0' ve en sona gizli bir '\0' daha eklenir. Toplam 8 karakter.
+
+İpucu: Derleyici çift tırnak arasındaki \0 karakterlerini (kaçış dizilerini) tek bir byte olarak hafızaya gömer ve string'in en sonuna her koşulda kendi \0 karakterini ekler.
+
+Soru 5
+
+Doğru Cevap Notu: Karakterlerin ASCII değerleri toplanır. '1' karakterinin ASCII kodu 49, '3' karakterinin ASCII kodu ise 51'dir. 49 + 51 = 100.
+
+İpucu: C dilinde char tipi, karakterlerin arkasında yatan sayısal ASCII değerlerini tutan küçük tamsayı (integer) türleridir.
+
+Soru 6
+
+Doğru Cevap Notu: C dilinde bir dizi başlatılırken (initialize) elemanların bir kısmına değer verilirse, geri kalan tüm elemanlar derleyici tarafından otomatik olarak 0 (sıfır) ile doldurulur.
+
+İpucu: C dilindeki 'kısmi başlatma' (partial initialization) kurallarının atanmamış elemanları nasıl etkilediğini hatırlayın.
+
+Soru 7
+
+Doğru Cevap Notu: Değerler belleğe satır satır dolar: İlk satır {1,2,3}, ikinci satır {4,5,0}, üçüncü satır {0,0,0}. d[1][2] (2. satır, 3. sütun) boş kaldığı için ona otomatik sıfır atanmıştır.
+
+İpucu: Çok boyutlu diziler belleğe tek boyutlu gibi ardışık olarak yerleşir ve kısmi başlatmada boş kalan alanlar sıfırlanır.
+
+Soru 8
+
+Doğru Cevap Notu: Virgül operatörü parantez içinde ardışık işlemler yapar ve nihai olarak en sağdaki değeri döndürür. Yani i = 3 olur. arr[3] değeri ise 40'tır.
+
+İpucu: Parantez içi virgül ifadelerinde (A, B) her iki taraf çalışır fakat ifadenin bütününün atandığı değer her zaman B olur.
+
+Soru 9
+
+Doğru Cevap Notu: C dilinde diziler değiştirilemez (non-modifiable lvalue) adres etiketleridir. Bir dizi bir başka diziye = operatörü ile doğrudan atanamaz. Kopyalamak için döngü veya memcpy kullanılmalıdır (Derleme Hatası verir).
+
+İpucu: Dizi isimleri, bellek başlangıcını gösteren sabit (constant) adres değerleridir; atama (assignment) operatörünün sol tarafında bulunamazlar.
+
+Soru 10
+
+Doğru Cevap Notu: C dilinde null terminator \0, sayısal 0 değerine sahiptir ve mantıksal olarak false anlamı taşır. Şıklardaki tüm seçenekler derleyici için birebir aynı anlama gelir ve döngüyü düzgün çalıştırır.
+
+İpucu: C dilinde bit değerleri sıfır olan bir byte hem \0, hem tamsayı 0, hem de koşullarda false (yanlış) anlamına gelir.
+
+Soru 11
+
+Doğru Cevap Notu: Ters slash karakterleri 'kaçış dizisi' (escape sequence) oluşturur. 'A', '\n' (alt satır), 'B', '\' (ters slash), 'C', ''' (tek tırnak), 'D' ve gizli '\0' karakterleri olmak üzere toplam 8 adettir.
+
+İpucu: Kaçış dizileri (Escape sequences), kaynak kodda birden fazla karakterle yazılmalarına rağmen derlendiklerinde hafızada sadece 1 byte'lık tek bir karakter temsil ederler.
+
+Soru 12
+
+Doğru Cevap Notu: "RADAR" 5 harflidir. Son harfin indeksi 4'tür. İlk harf (i=0) ile son harf (4-0 = 4) eşleşmelidir. İkinci harf (i=1) ile sondan ikinci (4-1 = 3) eşleşmelidir. İfade 4 - i olmalıdır.
+
+İpucu: Dizi boyutunun (uzunluk) N olduğu durumda, C dilinde son elemanın indeksi daima N - 1'dir. Zıt eşleşme bu indeksten geriye doğru yapılmalıdır.
+
+Soru 13
+
+Doğru Cevap Notu: Post-increment (i++) kullanıldığı için arr[1] okunur ve k'ya atanır (k=4). Bu satır işletildikten sonra i'nin değeri 2 olur. printf içindeki arr[i] ise arr[2] yani 6'dır.
+
+İpucu: Post-increment (++ sonda) operatörü değerin mevcut halini işleme verir, komut satırı bittiğinde (sequence point) değişkenin değerini hafızada artırır.
+
+Soru 14
+
+Doğru Cevap Notu: İç içe işlemlerde önce en içteki parantez/indeks çözülür. a[0] değeri 1'dir. İfade a[1] = a[2] haline gelir. a[2] değeri 3 olduğu için a[1] yerine 3 atanır. Dizi {1, 3, 3} olur.
+
+İpucu: Köşeli parantezler her zaman içeriden dışarıya doğru çözümlenir (hesaplanır). Önce a[0]'ın ne olduğuna bakın.
+
+Soru 15
+
+Doğru Cevap Notu: C dilinde char dizilerinde sayısal 0 değeri ile '\0' (null) karakteri aynı şeydir. printf(%s) fonksiyonu string'i okurken ilk null karakterini gördüğü anda işlemi durdurur. Çıktı "Bilgi" olur.
+
+İpucu: C'de %s formatlayıcısı, ilk null (\0 veya 0) karakterine rastlayana kadar okuma yapar, sonrasını görmezden gelir.
+
+Soru 16
+
+Doğru Cevap Notu: C dilinde bir dizinin ismi tek başına kullanıldığında (örneğin sizeof operatörü istisnası dışında) otomatik olarak dizinin ilk elemanının başlangıç adresini (referansını) işaret eder. Dolayısıyla arr ve &arr[0] değer olarak aynı adrestir.
+
+İpucu: C dilindeki adres (referans) mantığında bir dizinin adı, aslında o dizinin RAM'de başladığı lokasyonun etiketinden ibarettir.
+
+Soru 17
+
+Doğru Cevap Notu: i=0 için a[0][0] elemanı 1'dir. i=1 için a[1][1] elemanı 5'tir. Bu döngü matrisin ana köşegenini (diagonal) tarar. Toplam 1 + 5 = 6'dır.
+
+İpucu: Çok boyutlu bir dizide satır ve sütun indekslerini aynı tutmak (a[i][i]), sizi ana köşegen üzerindeki sayılara götürür.
+
+Soru 18
+
+Doğru Cevap Notu: ASCII tablosunda büyük harflerden küçük harflere geçiş yapmak için değere 32 eklenir (Örn: 'A' 65, 'a' 97). Switch koşulu sadece U, I ve A harflerini yakalar ve onları küçük harfe (u, i, a) çevirir. Tüm kelime küçük harfli "tubitak" haline gelir.
+
+İpucu: İngilizce alfabede büyük harfe 32 eklemek onu küçük harfe dönüştürür; çünkü küçük harfler ASCII tablosunda büyük harflerden sonra gelir.
+
+Soru 19
+
+Doğru Cevap Notu: 'A' karakterinin ASCII değeri 65'tir. 2 eklenirse 67 olur. ASCII tablosunda 67 numaralı karakter 'C' harfidir.
+
+İpucu: C dilinde char ile sayısal toplama yapmak, sizi doğrudan alfabede o kadar sıra ileriye götürür
+
+
+Soru 20
+
+Doğru Cevap Notu: Döngü, ana köşegeni (1, 5, 9) iki katına çıkarır. Alt üçgen matristeki elemanlar, üst üçgendeki simetrikleriyle çıkarılır. m[2][0] (değeri 7), kendisinden m[0][2] (değeri 3) çıkarılarak 4 olur. m[0][2] ise üst üçgende olduğu için (i < j durumu) döngüde hiç değişmez (3 kalır). Sonuç: 4 + 3 = 7'dir.
+
+İpucu: Döngünün içindeki i > j koşulu matrisin sadece alt üçgenini, i == j köşegenini belirtir. Üst kısımdaki elemanların (örneğin m[0][2]) hiçbir değişime uğramadan orijinal değerini koruduğunu fark etmek sorunun anahtarıdır.
+
+Soru 21
+
+Doğru Cevap Notu: İşlem şu şekildedir: arr[0][1] = arr[1][0]++ + ++arr[0][0]. Burada arr[1][0] (6) post-increment olduğu için işleme 6 olarak girer, atama sonrası RAM'de 7 olur. arr[0][0] (2) ise pre-increment olduğu için önce 3 olur, işleme 3 olarak girer. Toplam 6 + 3 = 9 değeri arr[0][1] içine atanır.
+
+İpucu: Post-increment işlemi o satırdaki atama hesaplamasına değişkenin mevcut değerini sokar, noktalı virgül geçildiğinde (sequence point) değişkenin bellekteki değeri çoktan artırılmış olur.
+
+Soru 22
+
+Doğru Cevap Notu: Geçici (temp) değişken kullanmadan iki değeri değiştirmek için üç kez XOR (^=) işlemi yapılmıştır. Döngünün her adımı komşu iki elemanı birbiriyle takas eder. i=0 iken (2 ve 3) yer değiştirir. i=1 iken (4 ve 5) yer değiştirir. Sonuçta arr[0][1] 3, arr[2][0] ise 4 değerini alır.
+
+İpucu: x ^= y; y ^= x; x ^= y; deseni C dilinde klasik bir "swap" (takas) taktiğidir. Bu tarz soruları çözerken işlemi matematiğe dökmek yerine, matrisin anlık yeni halini kağıda basitçe çizerek takip edin.
+
+Soru 23
+
+Doğru Cevap Notu: C dilinde süslü parantez {} yerine normal parantez () kullanılırsa bu bir virgül operatörü dizisine dönüşür. (1, 2, 3) ifadesi 3; (4, 5, 6) ifadesi 6 döndürür. Atama aslında {3, 6} şeklindedir. Kısmi başlatma kuralıyla matrisin geri kalanı 0 ile dolar. x[0][0] + x[0][1] = 3 + 6 = 9 olur.
+
+İpucu: Normal parantez () içindeki virgüller C'nin virgül operatörü olarak çalışır ve ifadenin en sağındaki değeri tek bir sayı olarak döndürür. Dizi tanımlarında boyutlandırmayı bozan çok yaygın bir olimpiyat tuzağıdır.
+
+Soru 24
+
+Doğru Cevap Notu: İki boyutlu dizilerde t[1], ikinci satırın başlangıç adresidir. *t[1] bu adresteki değerdir, yani t[1][0] (3'tür). t[1] + 1, ikinci satırın 1 adım sonrası yani t[1][1]'in adresidir ve *(t[1] + 1) bu değeri (4'ü) temsil eder. Değerler yerine konduğunda sonuç 5 ve 3 çıkar.
+
+İpucu: İki boyutlu dizilerde satır adı (örn: t[1]) o satırın bellekteki başlangıç adresidir (bir referanstır). Bu adresi yıldız (*) ile okursanız o satırın 0. indeksini elde edersiniz.
+
+Soru 25
+
+Doğru Cevap Notu: Çift indeksli satırlar (0 ve 2) soldan sağa, tek indeksli satırlar (1) 2-j formülünden dolayı sağdan sola doğru doldurulur. Bu durumda 1. satır (orta satır) sağdan sola dolarak 6, 5, 4 şeklini alır. a[1][0] (ilk eleman) 6 olur.
+
+İpucu: Matris atamalarında satır (i) tek/çift kontrolünden geçip sütun (j) N - 1 - j gibi bir formülle ters çevriliyorsa, bu klasik bir yılan/zigzag matris algoritmasıdır.
+
+Soru 26
+
+Doğru Cevap Notu: p[i][j] = p[i-1][j-1] + p[i-1][j] formülü bir üst satırdaki komşu iki elemanın toplanarak alt hücreyi oluşturmasıdır. Bu matematikteki Pascal Üçgenidir. 4. satır (indeks 3) sayıları 1, 3, 3, 1 şeklindedir. p[3][2] değeri 3'tür.
+
+İpucu: İç içe döngülerde kendisinden önceki satırların değerlerini toplayarak ilerleyen atama formülleri genellikle matematikte dizilim formüllerinin (Pascal, Fibonacci matrisleri vb.) C dilindeki inşasıdır. Formülü 2 adım kağıtta deneyerek büyük resmi yakalayın.
+
+Soru 27
+
+Doğru Cevap Notu: res[j][2-i] = mat[i][j] formülü, matrisin birinci satırını (1,2,3) yeni matrisin son sütununa kopyalar. Bu işlem orijinal matrisi saat yönünde tam 90 derece döndürmek demektir.
+
+İpucu: Bir matriste (i, j) koordinatındaki elemanı, yeni matriste (j, N-1-i) koordinatına taşımak saat yönünde 90 derece döndürmeyi; (N-1-j, i) koordinatına taşımak ise saat yönünde 90 derece döndürmek anlamına gelir
