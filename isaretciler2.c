@@ -20,6 +20,7 @@ int main()
     printf("*** %d\n", *++ptr); //*,++//20
     printf("**** %d\n", *dizi);
 
+    
     //  *ptr+1   *(ptr+1) ++*ptr *++ptr
     //& []
 }

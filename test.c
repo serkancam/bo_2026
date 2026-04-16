@@ -1,9 +1,15 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-int main()
-{
-    char *iller[]={"ankara","izmir","ankara","edirne"};
-    for(int i=0;i<sizeof(iller)/sizeof(*iller);i++)
-        printf("%d. il = %s\n",i+1,iller[i]);
+int main() {
+    int *ptr = (int *)malloc(20);
+    
+    // Populate the array
+    for (int i = 0; i < 5; i++)
+        ptr[i] = i + 1;
+        
+    // Print the array
+    for (int i = 0; i < 5; i++)
+        printf("%d ", ptr[i]);
     return 0;
 }
